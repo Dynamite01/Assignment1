@@ -42,7 +42,7 @@ public class Cinema {
         }
     }
 
-    // Получить информацию о билетах
+    // Getting info about available tickets
     public void getInfoTickets() {
         System.out.println("Tickets available:");
         for (String ticket : tickets) {
