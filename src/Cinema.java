@@ -13,7 +13,7 @@ public class Cinema {
         this.tickets = new ArrayList<>();
         this.bookings = new ArrayList<>();
     }
-
+    // The getters and setters to provide access to "private variables"
     // Adding the movie
     public void addMovie(Movie movie) {
         movies.add(movie);
