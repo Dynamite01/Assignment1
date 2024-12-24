@@ -1,5 +1,5 @@
 public class Movie {
-    private String title;
+    private String title; //private для защиты данных
     private int year;
     private String genre;
     private int rating;
@@ -52,6 +52,7 @@ public class Movie {
         this.price = price;
     }
     // for showing Movies
+    // метод
     public void displayMovie() {
         System.out.println("Title: " + title + "Year: " + year + "Genre: " + genre + "Rating: " + rating + "Duration: " + duration + "Price: " + price);
     }
