@@ -34,7 +34,7 @@ public class Cinema {
         }
     }
 
-    // Taking the info about movies
+    // Getting  info about movies
     public void getInfoMovies() {
         System.out.println("Movies available in " + cinemaName + ":");
         for (Movie movie : movies) {
@@ -50,7 +50,7 @@ public class Cinema {
         }
     }
 
-    // Показать бронирования
+    // Showing the bookings
     public void displayBookings() {
         System.out.println("Bookings:");
         for (String booking : bookings) {
