@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Viewer {
    private String name;
    private int age;
@@ -22,7 +24,32 @@ public class Viewer {
        this.age = age;
    }
    // tos show viewer information
-   public void displayViewerInfo() {
-       System.out.println("Name: " + name + "\nAge: " + age + "\n");
+
+
+    // Override toString() method
+   @Override
+   public String toString() {
+       return "Viewer{" +
+               "name='" + name + '\'' +
+               ", age=" + age +
+               '}';
+   }
+
+    // Override equals() method
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Viewer viewer = (Viewer) obj;
+        return age == viewer.age && name.equals(viewer.name);
     }
+
+
+    // Override hashCode() method
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
+
 }
