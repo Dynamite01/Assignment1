@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Movie {
     private String title; //private для защиты данных
     private int year;
@@ -52,11 +54,37 @@ public class Movie {
         this.price = price;
     }
     // for showing Movies
-    // метод
-    public void displayMovie() {
-        System.out.println("Title: " + title + "Year: " + year + "Genre: " + genre + "Rating: " + rating + "Duration: " + duration + "Price: " + price);
+
+
+
+    // Override toString() method
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", year=" + year +
+                ", genre='" + genre + '\'' +
+                ", rating=" + rating +
+                ", duration=" + duration +
+                ", price=" + price +
+                '}';
     }
 
+    // Override equals() method
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Movie movie = (Movie) obj;
+        return year == movie.year && rating == movie.rating && duration == movie.duration &&
+                price == movie.price && title.equals(movie.title) && genre.equals(movie.genre);
+    }
+
+    // Override hashCode() method
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, year, genre, rating, duration, price);
+    }
 
 
 }

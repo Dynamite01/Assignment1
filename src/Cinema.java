@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Cinema {
     private String cinemaName;
@@ -38,7 +40,7 @@ public class Cinema {
     public void getInfoMovies() {
         System.out.println("Movies available in " + cinemaName + ":");
         for (Movie movie : movies) {
-            movie.displayMovie();
+            movie.toString();
         }
     }
 
@@ -50,6 +52,7 @@ public class Cinema {
         }
     }
 
+
     // Showing the bookings
     public void displayBookings() {
         System.out.println("Bookings:");
@@ -57,4 +60,33 @@ public class Cinema {
             System.out.println(booking);
         }
     }
+
+    // New method to sorting films from genre
+    public void filterMoviesByGenre(String genre) {
+        System.out.println("Movies in genre " + genre + ":");
+        for (Movie movie : movies) {
+            if (movie.getGenre().equalsIgnoreCase(genre)) {
+                movie.toString();
+            }
+        }
+    }
+
+    // New method to sorting films from rating
+    public void sortMoviesByRating() {
+        movies.sort((m1, m2) -> Integer.compare(m2.getRating(), m1.getRating()));
+        System.out.println("Movies sorted by rating:");
+        getInfoMovies();
+    }
+
+    public void searchMovieByTitle(String title) {
+        for (Movie movie : movies) {
+            if (movie.getTitle().equalsIgnoreCase(title)) {
+                movie.toString();
+                return;
+            }
+        }
+        System.out.println("Movie not found.");
+    }
+
+
 }
