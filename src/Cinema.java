@@ -1,14 +1,13 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+
 
 public class Cinema {
-    private String cinemaName;
+    private String cinemaName;     //инкапсуляция
     private ArrayList<Movie> movies;
     private ArrayList<String> tickets;
     private ArrayList<String> bookings;
 
-    // Consturctor
+    // Constructor
     public Cinema(String cinemaName) {
         this.cinemaName = cinemaName;
         this.movies = new ArrayList<>();
@@ -40,7 +39,7 @@ public class Cinema {
     public void getInfoMovies() {
         System.out.println("Movies available in " + cinemaName + ":");
         for (Movie movie : movies) {
-            movie.toString();
+            movie.toString(); // полиморфизм
         }
     }
 
@@ -65,8 +64,8 @@ public class Cinema {
     public void filterMoviesByGenre(String genre) {
         System.out.println("Movies in genre " + genre + ":");
         for (Movie movie : movies) {
-            if (movie.getGenre().equalsIgnoreCase(genre)) {
-                movie.toString();
+            if (movie.getGenre().equals(genre)) {
+                System.out.println(movie.toString());
             }
         }
     }
@@ -74,19 +73,27 @@ public class Cinema {
     // New method to sorting films from rating
     public void sortMoviesByRating() {
         movies.sort((m1, m2) -> Integer.compare(m2.getRating(), m1.getRating()));
-        System.out.println("Movies sorted by rating:");
+        System.out.println("Movies sorted by rating: " + movies.toString());
         getInfoMovies();
     }
 
     public void searchMovieByTitle(String title) {
         for (Movie movie : movies) {
-            if (movie.getTitle().equalsIgnoreCase(title)) {
+            if (movie.getTitle().equals(title)) {
                 movie.toString();
                 return;
-            }
+            }equals(title);
         }
         System.out.println("Movie not found.");
     }
 
+    public void filterByPrice() {
+        for (Movie movie : movies) {
+            if (movie.getPrice() > 50) {
+                movie.toString();
+                return;
+            }
+        }
+    }
 
 }

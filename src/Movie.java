@@ -2,7 +2,7 @@ import java.util.Objects;
 
 public class Movie {
     private String title; //private для защиты данных
-    private int year;
+    private int year;  // инкапсуляция
     private String genre;
     private int rating;
     private int duration;
@@ -59,7 +59,7 @@ public class Movie {
 
     // Override toString() method
     @Override
-    public String toString() {
+    public String toString() {    //полиморфизм
         return "Movie{" +
                 "title='" + title + '\'' +
                 ", year=" + year +
@@ -71,9 +71,11 @@ public class Movie {
     }
 
     // Override equals() method
+    // переопределение
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
+        if (this == obj)
+            return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Movie movie = (Movie) obj;
         return year == movie.year && rating == movie.rating && duration == movie.duration &&
@@ -81,10 +83,13 @@ public class Movie {
     }
 
     // Override hashCode() method
+    //переопеределение
     @Override
     public int hashCode() {
         return Objects.hash(title, year, genre, rating, duration, price);
     }
+
+
 
 
 }

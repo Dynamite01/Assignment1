@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class Viewer {
-   private String name;
+   private String name; //инкапсуляция
    private int age;
    // Constructor
    public Viewer(String name, int age) {
